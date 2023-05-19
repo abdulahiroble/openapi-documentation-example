@@ -37,8 +37,8 @@ jobs:
 
       - name: Set KUBECONFIG environment variable
         run: |
-          echo "$KUBECONFIG_CONTENT" > kubeconfig.yml
-          export KUBECONFIG=config.yml
+          echo "$KUBECONFIG_CONTENT" > config.yml
+          export KUBECONFIG=$(pwd)/config.yml
 
       # # - name: echo env
       # #   run: echo ${{ env.BUILD_TAG }}
