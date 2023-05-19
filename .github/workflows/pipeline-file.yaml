@@ -65,4 +65,4 @@ jobs:
 
       - name: Apply Kubernetes ingress file
         run: |
-          manifests/templates/ingress-conf.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
+          envsubst < manifests/templates/ingress-conf.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
