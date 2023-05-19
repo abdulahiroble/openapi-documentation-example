@@ -51,7 +51,7 @@ jobs:
       #     docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}
       #     docker push ${{ secrets.ACR_ENDPOINT }}/${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}
 
-      # - name: Apply Kubernetes manifest file
+      - name: Apply Kubernetes manifest file
         run: |
           export BUILD_TAG=${{ env.BUILD_TAG }}
           export PORT=${{env.PORT}}
