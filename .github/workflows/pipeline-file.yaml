@@ -59,7 +59,7 @@ jobs:
           envsubst < manifests/templates/config-map.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
 
 
-        - name: Apply Kubernetes ingress file
+      - name: Apply Kubernetes ingress file
         run: |
           export BUILD_TAG=${{ env.BUILD_TAG }}
           export PORT=${{env.PORT}}
