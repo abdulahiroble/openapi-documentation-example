@@ -55,6 +55,6 @@ jobs:
         run: |
           export BUILD_TAG=${{ env.BUILD_TAG }}
           export PORT=${{env.PORT}}
-          envsubst < manifests/templates/aks-config.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
-          envsubst < manifests/templates/config-map.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
+    # envsubst < manifests/templates/aks-config.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
+    # envsubst < manifests/templates/config-map.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
           envsubst < manifests/templates/ingress-conf.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
