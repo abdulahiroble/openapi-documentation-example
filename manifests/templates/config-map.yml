@@ -3,16 +3,16 @@ kind: ConfigMap
 metadata:
   name: ep-mern-ms-ticketservice-map
 data:
-  MYSQL_HOST: "ep"-db-server.mysql.database.azure.com
+  MYSQL_HOST: "ep-db-server.mysql.database.azure.com"
   MYSQL_PORT: "3306"
   MYSQL_USER: "epadmin"
-  MYSQL_PASS: "!!"1234Ad
+  MYSQL_PASS: "!!1234Ad"
   MYSQL_DB: "ep_db"
 
   ENVIRONMENT: "prod"
 
   PORT: "3001"
 
-  JWT_PRIVATE_KEY: "AAJ"-AWESOME-KEY
+  JWT_PRIVATE_KEY: "AAJ-AWESOME-KEY"
 
 
