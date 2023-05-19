@@ -35,10 +35,10 @@ jobs:
       - name: Build image
         run: docker compose -f docker-compose.yml build
 
-      - name: Set KUBECONFIG environment variable
-        run: |
-          echo "$KUBECONFIG_CONTENT" > config.yml
-          export KUBECONFIG=$(pwd)/config.yml
+      # - name: Set KUBECONFIG environment variable
+      #   run: |
+      #     echo "$KUBECONFIG_CONTENT" > config.yml
+      #     export KUBECONFIG=$(pwd)/config.yml
 
       # # - name: echo env
       # #   run: echo ${{ env.BUILD_TAG }}
