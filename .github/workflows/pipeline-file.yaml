@@ -1,7 +1,7 @@
 name: Server Build & Push
 
 env:
-  IMAGE_NAME: ep-mern-ms-authservice
+  IMAGE_NAME: ep-mern-authservice
   BRANCH_NAME: ${{ github.ref}}
   BUILD_TAG: ${{ github.sha }}
 
