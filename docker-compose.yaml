@@ -1,33 +1,17 @@
-version: '3'
+version: '3.8'
 
-networks: 
-  ep-mern: 
-    external: true
+# networks: 
+#   ep-mern: 
+#     external: true
 
 services:
   search-service:
-    image: ep-mern-authservice
+    image: ep-mern-authservice:latest
     # image: ep-mern-searchservice:v3
-    container_name: ep-mern-searchservice 
+    container_name: ep-mern-authservice 
     # stdin_open: true
-    environment:
-      - MYSQL_HOST = ep-db-server.mysql.database.azure.com
-      - MYSQL_PORT = 3306
-      - MYSQL_USER = epadmin
-      - MYSQL_PASS = !!1234Ad
-      - MYSQL_DB = ep_db
-
-      - ENVIRONMENT = prod
-
-      - JWT_PRIVATE_KEY = AAJ-AWESOME-KEY
-
-      - PORT = 3001
-
     build:
       dockerfile: Dockerfile
       context: ./microservice
-    volumes:
-      - /api/node_modules
-      - ./api:/app
     ports:
       - "3001:3001"

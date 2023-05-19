@@ -35,8 +35,9 @@ kind: Service
 metadata:
   name: ep-mern-authservice
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-  - port: 3001
+  - port: 80
+    targetPort: 3001
   selector:
     app: ep-mern-authservice

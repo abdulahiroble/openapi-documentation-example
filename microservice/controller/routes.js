@@ -4,22 +4,22 @@ import authJwt from '../service/middleware/authJwt.js';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.send("Welcome to the auth API")
+router.get('/ms/auth', (req, res) => {
+    res.send("Welcome to the auth microservice!");
 })
 
-router.post('/api/users', userController.createUser);
-router.post('/api/create/role', userController.createRole);
-router.get('/api/users', userController.getAllUsers);
-// TMP url, will be /api/verify in future
+router.post('/ms/auth/users', userController.createUser);
+router.post('/ms/auth/create/role', userController.createRole);
+router.get('/ms/auth/users', userController.getAllUsers);
+// TMP url, will be /ms/auth/verify in future
 // This will be an URL on the frontend
 router.get('/verify/account/:uuid', userController.verifyAccount);
-router.get('/api/users/:id', userController.getUserById);
-router.delete('/api/users/:id', userController.deleteUser);
-router.put('/api/user', userController.updateUser);
+router.get('/ms/auth/users/:id', userController.getUserById);
+router.delete('/ms/auth/users/:id', userController.deleteUser);
+router.put('/ms/auth/user', userController.updateUser);
 
   // Login
-router.post('/api/login/verify', authJwt.verify, userController.verifyedUser)
-router.post('/api/login', userController.login);
+router.post('/ms/auth/login/verify', authJwt.verify, userController.verifyedUser)
+router.post('/ms/auth/login', userController.login);
 
 export default router

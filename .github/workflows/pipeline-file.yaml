@@ -54,4 +54,6 @@ jobs:
       - name: Apply Kubernetes manifest file
         run: |
           export BUILD_TAG=${{ env.BUILD_TAG }}
-           envsubst < aks-config.yaml | kubectl apply -f - -n default --kubeconfig=config.yaml
+          envsubst < manifests/templates/aks-config.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
+          envsubst < manifests/templates/config-map.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
+          envsubst < manifests/templates/ingress-config.yml | kubectl apply -f - -n ep-mern --kubeconfig=config.yml
