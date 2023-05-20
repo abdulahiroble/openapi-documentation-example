@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: ep-mern-ms-ticketservice-map
+  name: auth-config-map
 data:
   MYSQL_HOST: "ep-db-server.mysql.database.azure.com"
   MYSQL_PORT: "3306"
