@@ -1,5 +1,6 @@
 import generateToken from '../service/middleware/signIn.js'
 import userCollection from '../repository/userRepository.js'
+import { DATE } from 'sequelize';
 
 
 const createUser = async function (req, res) {

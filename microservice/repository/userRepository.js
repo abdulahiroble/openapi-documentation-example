@@ -1,6 +1,7 @@
 import db from '../startup/mysql.js'
 import bcrypt from 'bcryptjs'
 import uuid from 'node-uuid'
+import moment from 'moment-timezone'
 
 const User = db.users
 const UserRoles = db.userRoles
@@ -185,6 +186,15 @@ export default {
                     attributes: ['id', 'role']
                 }
             });
+
+            
+            await User.update(
+                {login_time : moment().locale("dk").format('YYYY-MM-DD HH:mm:ss')}, 
+                {
+                    where : {id : data.id} 
+                }
+            );
+
 
             const validPassword = await bcrypt.compareSync(body.password, data.password)
             // console.log(data.userRoles)

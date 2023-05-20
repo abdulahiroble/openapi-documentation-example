@@ -37,6 +37,10 @@ export default (sequelize, Sequelize) => {
       token: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      login_time:{
+        type: Sequelize.DATE,
+        allowNull: true
       }
     });
 
