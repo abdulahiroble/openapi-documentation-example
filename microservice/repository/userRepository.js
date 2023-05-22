@@ -208,6 +208,7 @@ export default {
                 validPassword: validPassword,
                 success: true,
                 object: data,
+                recievedToken: body.key,
                 msg: ""
             }
         }

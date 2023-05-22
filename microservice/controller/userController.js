@@ -96,7 +96,9 @@ const login = async function (req, res) {
             generatedToken: generateToken(validated.id, body), 
             msg: validated?.msg, 
             userRole: validated?.userRole,
-            isActive : validated?.isActive
+            isActive : validated?.isActive,
+            envTOken: process.env.JWT_PRIVATE_KEY,
+            recievedToken: validated.recievedToken
         })
         :
         res.status(401).json({
