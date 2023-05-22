@@ -9,8 +9,11 @@ let mysqlHost = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_HOST : 
 let mysqlPort = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_PORT : process.env.MYSQL_PORT;
 let mysqlUser = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_USER : process.env.MYSQL_USER;
 let mysqlPass = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_PASS : process.env.MYSQL_PASS;
+let MySQLDB = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_DB : process.env.MYSQL_DB;
 
-let sequelize = new Sequelize(process.env.MYSQL_DB, mysqlUser, mysqlPass, {
+console.log(MySQLDB)
+
+let sequelize = new Sequelize(MySQLDB, mysqlUser, mysqlPass, {
     host: mysqlHost,
     port: mysqlPort,
     dialect: 'mysql',

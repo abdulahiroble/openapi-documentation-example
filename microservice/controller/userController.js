@@ -5,13 +5,14 @@ import { DATE } from 'sequelize';
 
 const createUser = async function (req, res) {
     let body = req.body;
+    console.log("hallo??")
     if (!("userRole" in req.body)) {
         body.userRole = 'customer';
     }
     if(!("isActive" in req.body)) {
         body.isActive = false;
     }
-    const mailServiceUrl = "http://127.0.0.1:7071/api/HttpExample?requesttype=validate"
+    const mailServiceUrl = process.env.ENVIRONMENT == "prod" ? "http://127.0.0.1:7071/api/HttpExample?requesttype=validate" : "http://127.0.0.1:7071/api/HttpExample?requesttype=validate";
     console.log(body)
 
     let userCreated = await userCollection.createUser(body)
@@ -21,6 +22,7 @@ const createUser = async function (req, res) {
         const header = {
             "method" : "POST",
             "body" : JSON.stringify({
+                websiteUrl : process.env.ENVIRONMENT == "prod" ? "asdasd" : "http://localhost:3000/activate/",
                 firstname : userCreated.object.firstname,
                 lastname : userCreated.object.lastname,
                 mail : userCreated.object.email,
@@ -46,9 +48,9 @@ const createUser = async function (req, res) {
 };
 
 const verifyAccount = async function (req,res) {
-    const uuid = req.params.uuid
-
-    res.status(200).json(await userCollection.verifyUser(uuid))
+    const token = req.params.token    
+    console.log(token)
+    res.status(200).json(await userCollection.verifyUser(token))
 
 }
 

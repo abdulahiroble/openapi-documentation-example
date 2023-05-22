@@ -22,6 +22,7 @@ export default {
             isActive: body.isActive,
             token: uuid.v4()
         }
+        
 
         try {
             const data = await User.create(user)
@@ -112,14 +113,16 @@ export default {
             }
         }
     },
-    verifyUser: async (uuid) => {
+    verifyUser: async (token) => {
         try {
             const data = await User.update(
                 {isActive : true}, 
                 {
-                    where : {token : uuid} 
+                    where : {token : token} 
                 }
             );
+
+            console.log(data)
 
             return {
                 success: true,
