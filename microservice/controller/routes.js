@@ -101,7 +101,7 @@ router.get('/ms/auth/users/:id', userController.getUserById);
 router.delete('/ms/auth/user/:id', userController.deleteUser);
 /**
  * @openapi
- * /ms/auth/users/{id}:
+ * /ms/auth/user/{id}:
  *   put:
  *     description: Update a user by ID
  *     parameters:
