@@ -20,22 +20,31 @@ router.get('/ms/auth', (req, res) => {
  *             properties:
  *               firstname:
  *                 type: string
+ *                 example: John
  *               lastname:
  *                 type: string
+ *                 example: Doe
  *               email:
  *                 type: string
+ *                 example: johndoe@example.com
  *               address:
  *                 type: string
+ *                 default: "123 Main St"
  *               postal:
  *                 type: integer
+ *                 default: 12345
  *               phone:
  *                 type: integer
+ *                 example: 1234567890
  *               password:
  *                 type: string
+ *                 example: mypassword
  *               isActive:
  *                 type: boolean
+ *                 default: true
  *               userRole:
  *                 type: string
+ *                 default: "admin"
  *             required:
  *               - firstname
  *               - lastname
@@ -48,6 +57,7 @@ router.get('/ms/auth', (req, res) => {
  *       200:
  *         description: Returns Object with response
  */
+
 router.post('/ms/auth/users', userController.createUser);
 /**
  * @openapi
@@ -84,7 +94,7 @@ router.get('/ms/auth/verify/account/:token', userController.verifyAccount);
 router.get('/ms/auth/users/:id', userController.getUserById);
 /**
  * @openapi
- * /ms/auth/users/{id}:
+ * /ms/auth/user/{id}:
  *   delete:
  *     description: Delete a user by ID
  *     parameters:

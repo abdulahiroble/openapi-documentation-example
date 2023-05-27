@@ -14,22 +14,22 @@ let MySQLDB = process.env.ENVIRONMENT == "dev" ? process.env.DEV_MYSQL_DB : proc
 console.log(MySQLDB)
 
 let sequelize = new Sequelize(MySQLDB, mysqlUser, mysqlPass, {
-    host: mysqlHost,
-    port: mysqlPort,
-    dialect: 'mysql',
-    operatorsAliases: 0,
-    dialectOptions: {
-      ssl: {
-         require: ssl,
-         rejectUnauthorized: false
-      }
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
+  host: mysqlHost,
+  port: mysqlPort,
+  dialect: 'mysql',
+  operatorsAliases: 0,
+  dialectOptions: {
+    ssl: {
+      require: ssl,
+      rejectUnauthorized: false
     }
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
 });
 
 
